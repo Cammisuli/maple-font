@@ -36,19 +36,19 @@ build_config = {
         # Status.IGNORE: do nothing
         # Status.ENABLE: move font features to default ligature
         # Status.DISABLE: remove font features
-        "ss01": Status.IGNORE,  # == === != !==
+        "ss01": Status.DISABLE,  # == === != !==
         "ss02": Status.IGNORE,  # [info] [trace] [debug] [warn] [error] [fatal] [vite]
         "ss03": Status.IGNORE,  # __
-        "ss04": Status.IGNORE,  # >= <=
+        "ss04": Status.DISABLE,  # >= <=
         "ss05": Status.IGNORE,  # {{ }}
         # ======
         # character variant:
         # Status.IGNORE: do nothing
         # Status.ENABLE: enable character variants by default
         # Status.DISABLE: remove character variants
-        "cv01": Status.IGNORE,  # @ # $ % & Q -> =>
+        "cv01": Status.ENABLE,  # @ # $ % & Q -> =>
         "cv02": Status.IGNORE,  # alt i
-        "cv03": Status.IGNORE,  # alt a
+        "cv03": Status.ENABLE,  # alt a
         "cv04": Status.IGNORE,  # alt @
         "zero": Status.IGNORE,  # alt 0
         # ======
