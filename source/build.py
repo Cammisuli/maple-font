@@ -56,7 +56,7 @@ build_config = {
     # config for nerd font
     # total config: generate-nerdfont.{bat/sh}:17
     "nerd_font": {
-        "mono": Status.ENABLE,  # whether to use half width icon
+        "mono": Status.DISABLE,  # whether to use half width icon
         "use_hinted": Status.ENABLE,  # whether to use hinted ttf to generate Nerd Font patch
     },
 }
@@ -69,7 +69,7 @@ family_name = build_config["family_name"]
 family_name_trim = family_name.replace(" ", "")
 
 if not path.exists(path.join(root, "FontPatcher")):
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FontPatcher.zip"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FontPatcher.zip"
     print(f"Font Patcher does not exist, download from {url}")
     try:
         zip_path = path.join(root, "FontPatcher.zip")
@@ -337,9 +337,9 @@ if release_mode:
     with open(path.join(output_path, "release", "sha1.json"), "w") as hash_file:
         hash_file.write(json.dumps(hash_map, indent=4))
 
-    # copy woff
-    woff2_path = path.join(path.dirname(output_path), "woff2")
-    if path.exists(woff2_path):
-        shutil.rmtree(woff2_path)
-    shutil.copytree(path.join(output_path, "woff2"), woff2_path)
-    print("copy woff to root")
+    # copy nerd fonts
+    nf_path = path.join(path.dirname(output_path), "built-nerd-fonts")
+    if path.exists(nf_path):
+        shutil.rmtree(nf_path)
+    shutil.copytree(path.join(output_path, "nf"), nf_path)
+    print("copy nerd fonts to root")
